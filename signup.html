@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RON ORP - Sign up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet" />
+  <!-- CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon"
+    href="https://raw.githubusercontent.com/kowsertanim/common-images/main/fav-icon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <!--============= Common CSS start ============-->
+  <style>
+    body {
+      font-family: "Source Sans 3", sans-serif;
+      background-color: #f5f7f6;
+      overflow-x: hidden;
+    }
+
+    .header-container {
+      max-width: 1440px;
+      width: 100%;
+      padding: 32px 15px;
+      margin: 0 auto;
+    }
+
+    .logo-box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .btn-box {
+      display: none;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .login-btn,
+    .login-btn:hover,
+    .login-btn:focus {
+      display: inline-block;
+      text-decoration: none;
+      color: #1a171b;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0.07px;
+      text-transform: capitalize;
+    }
+
+    .signup-btn,
+    .signup-btn:hover,
+    .signup-btn:focus {
+      display: inline-block;
+      text-decoration: none;
+      padding: 11px 45px;
+      background-color: #1a171b;
+      color: #ffffff;
+      border: 1px solid #1a171b;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0.07px;
+      text-transform: capitalize;
+    }
+
+    #signup-box.whole-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      height: 100%;
+      padding: 50px 0;
+    }
+
+    #signup-box .box-center {
+      max-width: 456px;
+      width: 100%;
+      padding: 40px;
+      background-color: #ffffff;
+      border: 1px solid #ebebeb;
+    }
+
+    .join {
+      max-width: 456px;
+      width: 100%;
+      padding: 40px;
+      background-color: #ffffff;
+      border: 1px solid #ebebeb;
+      margin-top: 16px;
+    }
+
+    .passcode-input-box {
+      position: relative;
+    }
+
+    .visibility-box {
+      position: absolute;
+      right: 0;
+    }
+
+    #signUpEye.visibility-off.material-symbols-outlined {
+      position: absolute;
+      font-size: 20px;
+      right: 0;
+      bottom: 0;
+      padding: 13px;
+      cursor: pointer;
+    }
+
+    /*=============== Dropdown scrollbar CSS start ==============*/
+    /*======= width =======*/
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    /*===== Track =====*/
+    ::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+
+    /*====== Handle =======*/
+    ::-webkit-scrollbar-thumb {
+      background: #e5e5e5;
+      border-radius: 10px;
+    }
+
+    /*======= Handle on hover =======*/
+    ::-webkit-scrollbar-thumb:hover {
+      background: #dddddd;
+    }
+
+    /*=============== Dropdown scrollbar CSS end ==============*/
+
+    @media only screen and (max-width: 1366px) {
+      #signup-box.whole-box {
+        min-height: 87vh;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .mobile-logo {
+        width: 100px;
+      }
+
+      .signup-btn {
+        padding: 11px 25px;
+      }
+
+      #signup-box.whole-box {
+        padding: 15px;
+        min-height: 70vh;
+      }
+    }
+  </style>
+  <!--============= Common CSS end ============-->
+  <!--================= Signup CSS start ================-->
+  <style>
+    #signup-box .intro h1 {
+      color: #212121;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 33px;
+      letter-spacing: 0.08px;
+      margin-bottom: 8px;
+    }
+
+    #signup-box .intro p {
+      color: #212121;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+
+    #signup-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #signup-box ul li {
+      width: 100%;
+    }
+
+    #signup-box #email_label {
+      color: #666666;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+      margin-top: 24px;
+      margin-bottom: 18px;
+      width: 100%;
+      display: block;
+    }
+
+    #signup-box .attrEntry label {
+      display: none;
+    }
+
+    #signup-box #attributeList ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+      /* gap: 16px; */
+      margin-bottom: 0;
+    }
+
+    #signup-box .attrEntry {
+      position: relative;
+    }
+
+    #signup-box input,
+    #signup-box input:hover,
+    #signup-box input:focus {
+      display: block;
+      width: 100%;
+      padding: 13px 16px;
+      background-color: #f9f9f9;
+      border: 1px solid #dbd9d9;
+      border-radius: 2px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: #212121;
+      letter-spacing: 0.08px;
+      outline: 0;
+      box-shadow: none;
+      margin-top: 16px;
+    }
+
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset !important;
+    }
+
+    #signup-box input::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: #212121;
+      letter-spacing: 0.08px;
+    }
+
+    #signup-box .buttons button,
+    #signup-box .buttons button:hover,
+    #signup-box .buttons button:focus {
+      display: inline-block;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 22px;
+      color: #ffffff;
+      letter-spacing: 0.07px;
+      padding: 11px 15px;
+      text-transform: capitalize;
+      border: 1px solid #1a171b;
+      background-color: #1a171b;
+      border-radius: 100px;
+      outline: 0;
+      box-shadow: none;
+      margin-top: 24px;
+    }
+
+    #loginPrompt {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: #212121;
+      letter-spacing: 0.08px;
+    }
+
+    .loginPromptBtn,
+    .loginPromptBtn:hover,
+    .loginPromptBtn:focus {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 22px;
+      color: #212121;
+      letter-spacing: 0.08px;
+      text-decoration: none;
+    }
+
+    .join p {
+      color: #212121;
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 32px;
+      letter-spacing: 0.08px;
+      text-transform: capitalize;
+      margin-bottom: 24px;
+    }
+
+    .community-img img {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      margin-left: -15px;
+    }
+
+    .join p.text-light {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+      margin-bottom: 0;
+      color: #ffffff;
+      padding: 10px;
+      background: #212121;
+      border: 1px solid #212121;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: 2px solid #ffffff;
+      margin-left: -8px;
+    }
+
+    #signup-box #emailVerificationCode_label {
+      color: #212121;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+      padding: 20px 0;
+    }
+
+    #signup-box #claimVerificationServerError {
+      color: #cc0000;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+      padding: 10px 0;
+    }
+
+    #signup-box #successVerifications {
+      color: #666666;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+      padding: 20px 0;
+    }
+
+    #signup-box #verifying_blurb {
+      color: #666666;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0.08px;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .resend-code-box {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 16px 0 4px 0;
+    }
+
+    .newcodeText {
+      color: #9e9e9e;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0.07px;
+      padding: 0;
+      margin-bottom: 0;
+      white-space: nowrap;
+    }
+
+    #emailVerificationControl_but_send_new_code,
+    #emailVerificationControl_but_send_new_code:hover,
+    #emailVerificationControl_but_send_new_code:focus {
+      color: #1a171b !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      line-height: 21px !important;
+      text-decoration: underline !important;
+      background-color: transparent !important;
+      border: 0 !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+      text-transform: capitalize !important;
+      padding: 0 !important;
+      text-align: left !important;
+      margin-top: 0 !important;
+    }
+
+    #signup-box button.emailVerificationControl_but_verify_code {
+      margin: 16px 0 24px 0 !important;
+    }
+
+    #emailVerificationCode {
+      margin-top: 18px;
+    }
+
+    #signup-box .dropdown_single,
+    #signup-box .dropdown_single:hover,
+    #signup-box .dropdown_single:focus {
+      padding: 13px 16px;
+      background-color: #f9f9f9;
+      border: 1px solid #dbd9d9;
+      border-radius: 2px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: #212121;
+      letter-spacing: 0.08px;
+      outline: 0;
+      box-shadow: none;
+      text-decoration: none;
+      transition: all 0.5s ease-in-out;
+      width: 100%;
+      appearance: none;
+      background: url("https://joyselise.github.io/ronlogin/images/br_down.svg") no-repeat 97.5% #f9f9f9;
+      margin-top: 16px !important;
+    }
+
+    #signup-box .termschecked {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+      /* margin: 20px 0 0 0; */
+      padding: 0;
+    }
+    li.DropdownSingleSelect.city_li {
+      margin-bottom: 20px;
+    }
+
+    #signup-box .newssignupchecked {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    #signup-box input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      margin: 5px 5px 0 0;
+      padding: 0;
+    }
+
+    #signup-box .form-check-input:checked {
+      background-color: #323232;
+      border-color: #323232;
+    }
+
+    #signup-box .form-check-input:checked[type="checkbox"] {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    #signup-box .form-check-input:focus {
+      border-color: #323232;
+      outline: 0;
+      box-shadow: 0 0 0 0;
+    }
+
+    #signup-box .form-check-label {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      color: #000000;
+      letter-spacing: 0.08px;
+    }
+
+    #signup-box .form-check-label a,
+    #signup-box .form-check-label a:hover,
+    #signup-box .form-check-label a:focus {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      color: #000000;
+      letter-spacing: 0.08px;
+      text-decoration: none;
+    }
+
+    #signup-box .error.itemLevel.show,
+    #passwordEntryMismatch {
+      color: #cc0000;
+      /* background-color: #fae5e5;
+      border: 1px solid #fae5e5;
+      border-radius: 4px;
+      padding: 16px; */
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0.07px;
+    }
+
+    #emailVerificationControl_error_message,
+    #requiredFieldMissing {
+      color: #cc0000;
+    }
+
+    #signup-box .helpLink.tiny {
+      display: none;
+    }
+
+    #emailVerificationControl_success_message {
+      color: #212121;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0.07px;
+      padding: 20px 0 2px 0;
+    }
+
+    p.successVerifications {
+      color: #666666;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0.07px;
+      padding: 0;
+      margin: 0;
+    }
+
+    #emailVerificationControl_but_change_claims {
+      display: none !important;
+    }
+
+    #signup-box .buttons button#continue {
+      display: none;
+    }
+
+    /* #signup-box #attributeVerification .buttons {
+        display: none;
+      } */
+    #signup-box #attributeVerification .buttons #cancel {
+      display: none;
+    }
+
+    .hidenpass {
+      position: absolute;
+      right: 10px;
+      width: 20px;
+      -webkit-transform: translateY(-175%);
+          -ms-transform: translateY(-175%);
+              transform: translateY(-175%);
+      cursor: pointer;
+    }
+
+    li.Password.reenterPassword_li .error.itemLevel.show {
+      display: none;
+    }
+    .checkbox-error{
+      color: #cc0000;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0.07px;
+    }
+  </style>
+  <style>
+    input::-ms-reveal,
+    input::-ms-clear {
+      display: none;
+    }
+  </style>
+  <!--================= Signup CSS end ================-->
+</head>
+
+<body>
+  <!--====== Header section start =======-->
+  <header class="bg-white">
+    <div class="cotaniner header-container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="logo-box">
+          <a href="https://ronreload.selisestage.com/">
+            <figure class="mb-0">
+              <img src="https://joyselise.github.io/ronlogin/images/logo.svg" class="img-fluid mobile-logo"
+                alt="logo" />
+            </figure>
+          </a>
+        </div>
+        <div class="btn-box">
+          <a href="https://ron-backend.selisestage.com/login/azure" class="login-btn">Log in</a>
+          <a href="https://ron-backend.selisestage.com/login/azure" class="signup-btn">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--====== Header section end =======-->
+
+  <!--=========== Main section start ============-->
+  <section class="whole-box" id="signup-box">
+    <div class="box-center" role="presentation">
+      <div id="api" class="bg-white" role="main"></div>
+      <div id="loginPrompt">
+        Already have an account?
+        <a class="loginPromptBtn" href="https://ron-backend.selisestage.com/login/azure" onclick="history.back()">Log
+          in</a>
+      </div>
+    </div>
+    <!--========= Join section start =========-->
+    <div class="join">
+      <p>
+        The Ron Community already has 350,000 members.
+        <strong>Join In!</strong>
+      </p>
+      <div class="community-img d-flex">
+        <img src="https://joyselise.github.io/ronlogin/images/pimage.png" alt="community" />
+        <img class="community-ml" src="https://joyselise.github.io/ronlogin/images/pimage4.png" alt="community" />
+        <img class="community-ml" src="https://joyselise.github.io/ronlogin/images/pimage2.png" alt="community" />
+        <img class="community-ml" src="https://joyselise.github.io/ronlogin/images/pimage3.png" alt="community" />
+        <p class="text-light">401k</p>
+      </div>
+    </div>
+    <!--========= Join section end =========-->
+  </section>
+  <!--=========== Main section end ============-->
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var heading = $("<h1>Welcome to Ron</h1>");
+    $(".intro").find("p").before(heading);
+    $(".intro p").text("Create an account");
+    $("#email_label").text("Enter your email to verify your profile");
+    $("#emailVerificationCode_label").text(
+      "Please enter the verification code that has been sent to your inbox."
+    );
+    $("#emailVerificationControl_but_send_new_code").text("Resend Code");
+    $(".city_li").after(
+      '<div class="form-check pb-1 termschecked"><input class="form-check-input" type="checkbox" value="termsncondition" id="termschecked"><label class="form-check-label" for="termschecked">I accept the <a href="https://ronreload.selisestage.com/gtc" target="_blank"><b>Terms and conditions.</b></a></label></div><div class="form-check newssignupchecked"><input class="form-check-input" type="checkbox" value="newslettersignup" id="newssignupchecked"checked><label class="form-check-label" for="newssignupchecked">Sign up to our newsletter.</label></div>'
+    );
+    $("#newssignupchecked").on("change", function () {
+      conditionalContinueBtn();
+    });
+    $("#termschecked").on("change", function () {
+      conditionalContinueBtn();
+    });
+    function conditionalContinueBtn() {
+      if (
+        $("#termschecked").is(":checked") &&
+        $("#newssignupchecked").is(":checked")
+      ) {
+        $("#continue").show();
+      } else {
+        $("#continue").hide();
+      }
+    }
+    $("#continue").text("Sign Up");
+    $("#passwordEntryMismatch").insertAfter("#reenterPassword");
+    $(
+      "button#emailVerificationControl_but_send_new_code, p.newcodeText"
+    ).wrapAll("<div class='resend-code-box'></div>");
+    $(".passcode-input-box").children("div").addClass("visibility-box");
+    $("#signup-box .resend-code-box").insertBefore(
+      "#emailVerificationControl_but_verify_code"
+    );
+
+    function makePwdToggler(pwdField) {
+      if ($(pwdField).next('.hidenpass').length === 0) {
+        var $showpassImage = $('<img>', {
+          'src': 'https://joyselise.github.io/ronlogin/images/visibility-off.svg',
+          'class': 'hidenpass'
+        });
+        $(pwdField).after($showpassImage);
+        $showpassImage.on('click keydown', function (event) {
+          if (event.type === 'click' || (event.type === 'keydown' && event.key === 'Enter')) {
+            if (pwdField.type === 'password') {
+              pwdField.type = 'text';
+              $showpassImage.attr('src', 'https://joyselise.github.io/ronlogin/images/visibility-on.svg');
+            } else {
+              pwdField.type = 'password';
+              $showpassImage.attr('src', 'https://joyselise.github.io/ronlogin/images/visibility-off.svg');
+            }
+          }
+        });
+      }
+    }
+
+    makePwdToggler($('#newPassword')[0]);
+    makePwdToggler($('#reenterPassword')[0]);
+
+    function setupPwdTogglers() {
+      var pwdInputs = document.querySelectorAll("input[type=password]");
+      for (var i = 0; i < pwdInputs.length; i++) {
+        makePwdToggler(pwdInputs[i]);
+      }
+    }
+
+    setupPwdTogglers();
+    $(".sendNewCode").after(
+      '<p class="newcodeText" style="display:none;">Have not received any code yet?</p>'
+    );
+
+    // for resend code
+    var button = document.getElementById(
+      "emailVerificationControl_but_send_new_code"
+    );
+    var paragraph = document.querySelector(".newcodeText");
+
+    // Function to check button style and update paragraph
+    function updateParagraphStyle() {
+      if (button.style.display === "inline") {
+        paragraph.style.display = "inline";
+      } else {
+        paragraph.style.display = "none";
+      }
+    }
+
+    button.addEventListener("click", function () {
+      setTimeout(updateParagraphStyle, 100); //delay
+    });
+
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.attributeName === "style") {
+          updateParagraphStyle();
+        }
+      });
+    });
+
+
+    observer.observe(button, { attributes: true });
+
+    // for verificatrions
+    var successMessageDiv = document.getElementById(
+      "emailVerificationControl_success_message"
+    );
+    var emailVerificationControl = document.getElementById(
+      "emailVerificationControl"
+    );
+    var sendNewCodeButton = document.getElementById(
+      "emailVerificationControl_but_send_new_code"
+    );
+    var elementsToUpdate = document.querySelectorAll(
+      ".newPassword_li, .reenterPassword_li, .city_li, .termschecked, .newssignupchecked"
+    );
+    var verificationSuccessTextHide = document.querySelector(".verificationSuccessText");
+
+    // Function to update display of elements and styles
+    function updateElementDisplay() {
+      var isEmailVerified =
+        successMessageDiv.style.display === "inline" &&
+        successMessageDiv.getAttribute("aria-label") ===
+        "E-mail address verified. You can now continue.";
+
+      // Update display and styles for selected elements
+      var displayStyle = isEmailVerified ? "block" : "none";
+      elementsToUpdate.forEach(
+        (element) => (element.style.display = displayStyle)
+      );
+
+      // Additional styles for email verification success
+      if (isEmailVerified) {
+        successMessageDiv.style.fontSize = "0px";
+        emailVerificationControl.style.marginTop = "";
+        // emailVerificationControl.style.marginTop = '-35px';
+        verificationSuccessTextHide.style.display = "none";
+
+        // Create and insert the success verification paragraph
+        if (!document.querySelector(".successVerifications")) {
+          var successParagraph = document.createElement("p");
+          successParagraph.className = "successVerifications";
+          successParagraph.textContent =
+            "You email has been verified. Please set-up your Password and City";
+          sendNewCodeButton.insertAdjacentElement(
+            "afterend",
+            successParagraph
+          );
+        }
+      } else {
+        // Reset styles if not verified
+        successMessageDiv.style.fontSize = "";
+        emailVerificationControl.style.marginTop = "";
+
+        // Remove the success verification paragraph if it exists
+        var successParagraph = document.querySelector(
+          ".successVerifications"
+        );
+        if (successParagraph) {
+          successParagraph.remove();
+        }
+      }
+    }
+
+    // MutationObserver for style changes
+    var observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.attributeName === "style" ||
+          mutation.attributeName === "aria-label"
+        ) {
+          updateElementDisplay();
+        }
+      });
+    });
+
+    // Start observing the div
+    observer.observe(successMessageDiv, { attributes: true });
+
+    // Initial update
+    updateElementDisplay();
+
+
+    $(document).ready(function () {
+      function checkVerificationCodeDisplay() {
+        var verificationCodeLi = $(".emailVerificationCode_li");
+        var emailLabel = $("#email_label");
+
+        // Check if the verification code li is displayed inline
+        if (verificationCodeLi.css("display") === "inline") {
+          // Hide the email label
+          emailLabel.css("display", "none");
+        } else {
+          // Show the email label
+          emailLabel.css("display", "");
+        }
+      }
+
+      // Call the function initially
+      checkVerificationCodeDisplay();
+
+      // Set up a MutationObserver to watch for changes to the verification code li element
+      var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          if (
+            mutation.type === "attributes" &&
+            mutation.attributeName === "style"
+          ) {
+            checkVerificationCodeDisplay();
+          }
+        });
+      });
+
+      // Start observing the verification code li element
+      var targetNode = document.querySelector(".emailVerificationCode_li");
+      observer.observe(targetNode, { attributes: true });
+    });
+
+    $(document).ready(function () {
+      function checkVerificationErrorMessageDisplay() {
+        var verificationErrorMessage = $(
+          "#emailVerificationControl_error_message"
+        );
+        var verificationErrorTextDiv = $(".verificationErrorText.error");
+
+        // Check if the verification error message is displayed inline
+        if (verificationErrorMessage.css("display") === "inline") {
+          // Add padding to the verificationErrorTextDiv
+          verificationErrorTextDiv.css("padding-bottom", "10px");
+        } else {
+          // Remove the added padding from verificationErrorTextDiv
+          verificationErrorTextDiv.css("padding-bottom", "");
+        }
+      }
+
+      // Call the function initially
+      checkVerificationErrorMessageDisplay();
+
+      // Set up a MutationObserver to watch for changes to the verification error message div element
+      var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          if (
+            mutation.type === "attributes" &&
+            mutation.attributeName === "style"
+          ) {
+            checkVerificationErrorMessageDisplay();
+          }
+        });
+      });
+
+      // Start observing the verification error message div element
+      var targetNode = document.querySelector(
+        "#emailVerificationControl_error_message"
+      );
+      observer.observe(targetNode, { attributes: true });
+
+      // Handle Enter key press to send verification code
+      $(document).keydown(function (event) {
+        if (event.key === 'Enter') {
+          event.preventDefault(); // Prevent default Enter key behavior
+
+          let verificationCodeLi = $(".emailVerificationCode_li");
+          let sendCodeButton = $("#emailVerificationControl_but_send_code");
+          let verificationSuccessMessage = $("#emailVerificationControl_success_message");
+          let verifyButton = $("#emailVerificationControl_but_verify_code");
+          if (verificationCodeLi.css("display") === "none" && verificationSuccessMessage.css("display") === "none") {
+            sendCodeButton.click();
+          }
+          if (verificationCodeLi.css("display") === "block" && verificationSuccessMessage.css("display") === "inline") {
+            verifyButton.click();
+          }
+
+          if (verificationCodeLi.css("display") === "none" && verificationSuccessMessage.css("display") === "inline") {
+            if ($("#termschecked").is(":checked") && $("#newssignupchecked").is(":checked")) {
+                $(".checkbox-error").remove();
+                $("#continue").click();
+            }
+            if ($("#termschecked").is(":checked") && !$("#newssignupchecked").is(":checked")) {
+                if ($(".termschecked").next(".checkbox-error").length === 0) {
+                    $(".termschecked").after('<div class="checkbox-error" role="alert" aria-hidden="false" aria-label="">This information is required.</div>');
+                }
+            }
+  
+            if (!$("#termschecked").is(":checked") && $("#newssignupchecked").is(":checked")) {
+                if ($(".city_li").next(".checkbox-error").length === 0) {
+                    $(".city_li").after('<div class="checkbox-error" role="alert" aria-hidden="false" aria-label="">This information is required.</div>');
+                }
+            }
+  
+            if (!$("#termschecked").is(":checked") && !$("#newssignupchecked").is(":checked")) {
+                if ($(".city_li").next(".checkbox-error").length === 0) {
+                    $(".city_li").after('<div class="checkbox-error" role="alert" aria-hidden="false" aria-label="">This information is required.</div>');
+                }
+                if ($(".termschecked").next(".checkbox-error").length === 0) {
+                    $(".termschecked").after('<div class="checkbox-error" role="alert" aria-hidden="false" aria-label="">This information is required.</div>');
+                }
+            }
+
+            $("#termschecked, #newssignupchecked").on("change", function () {
+                if ($("#termschecked").is(":checked") && $("#newssignupchecked").is(":checked")) {
+                    $(".checkbox-error").remove();
+                }
+            });
+          }
+        }
+      });
+    });
+    $(document).ready(function () {
+      function adjustStylesBasedOnNewPasswordDisplay() {
+        var newPasswordLi = $(".newPassword_li");
+        var emailLabel = $("#email_label");
+        var buttonsDiv = $(".buttons");
+
+        // Check if the new password li is displayed as block
+        if (newPasswordLi.css("display") === "block") {
+          // Hide the email label and change flex-direction of buttons
+          emailLabel.css("display", "none");
+          buttonsDiv.css("flex-direction", "row");
+        } else {
+          // Reset the styles if the condition does not match
+          emailLabel.css("display", "");
+          buttonsDiv.css("flex-direction", "row-reverse");
+        }
+      }
+
+      // Call the function initially
+      adjustStylesBasedOnNewPasswordDisplay();
+
+      // Set up a MutationObserver to watch for changes to the new password li element
+      var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          if (
+            mutation.type === "attributes" &&
+            mutation.attributeName === "style"
+          ) {
+            adjustStylesBasedOnNewPasswordDisplay();
+          }
+        });
+      });
+
+      // Start observing the new password li element
+      var targetNode = document.querySelector(".newPassword_li");
+      observer.observe(targetNode, { attributes: true });
+    });
+
+    function updateSocialLoginElements() {
+      var successMessage = document.getElementById("emailVerificationControl_success_message");
+      if (successMessage) {
+        var emailLabel = document.getElementById("email_label");
+        var cityLi = document.querySelector(".DropdownSingleSelect.city_li");
+        var resendBox = document.querySelector(".resend-code-box");
+        var termsChecked = document.querySelector(".termschecked");
+        var newsletterSignupChecked = document.querySelector(".newssignupchecked");
+
+        if (successMessage && successMessage.style.display === "inline" && successMessage.innerText === "The code has been verified. You can now continue.") {
+          emailLabel.style.display = "none";
+          resendBox.style.display = "none";
+          cityLi.style.display = "block";
+          termsChecked.style.display = "flex";
+          newsletterSignupChecked.style.display = "flex";
+        } else {
+          cityLi.style.display = "none";
+          termsChecked.style.display = "none";
+          newsletterSignupChecked.style.display = "none";
+        }
+      }
+    }
+
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.attributeName === "style" || mutation.attributeName === "aria-label") {
+          updateSocialLoginElements();
+        }
+      });
+    });
+    var successMessageElement = document.getElementById("emailVerificationControl_success_message");
+    if (successMessageElement) {
+      observer.observe(successMessageElement, { attributes: true });
+    }
+
+    // Initial check
+    updateSocialLoginElements();
+
+  </script>
+</body>
+
+</html>
